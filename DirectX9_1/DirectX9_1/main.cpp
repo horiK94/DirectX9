@@ -45,13 +45,13 @@ LRESULT CALLBACK WindowProc(HWND hwnd, UINT msg, WPARAM wParam, LPARAM lParam)
 
 		RECT rect;
 		SetRect(&rect, 0, 0, 50, 50);
-		font->DrawTextW(NULL, L"きゃすばる", -1, &rect,DT_LEFT | DT_NOCLIP, D3DCOLOR_ARGB(255, 255, 0, 0));
-		if(SUCCEEDED(device9->BeginScene()))
+		font->DrawTextW(NULL, L"もじ", -1, &rect, DT_LEFT | DT_NOCLIP, D3DCOLOR_ARGB(255, 255, 0, 0));
+		if (SUCCEEDED(device9->BeginScene()))
 		{
 			//リソース持ってくるか所を設定
 			device9->SetStreamSource(0, vertexBuffer, 0, sizeof(CUSTOM_VERTEX));
 			device9->SetFVF(D3DFVF_XYZRHW | D3DFVF_DIFFUSE);
-			device9->DrawPrimitive(D3DPT_TRIANGLELIST, 0, 1);
+			device9->DrawPrimitive(D3DPT_TRIANGLELIST, 0, 18);
 			device9->EndScene();
 		}
 
@@ -144,16 +144,87 @@ INT WINAPI wWinMain(HINSTANCE hInst, HINSTANCE, LPWSTR, INT)
 
 	CUSTOM_VERTEX vertexArray[] =
 	{
-		{ 320.0f,  50.0f, 0.5f, 1.0f, 0xffffffff, }, // x, y, z, rhw, color
-		{ 590.0f, 430.0f, 0.5f, 1.0f, 0xffffffff, },
-		{  50.0f, 430.0f, 0.5f, 1.0f, 0xffffffff, },
-		//{ 320.0f,  50.0f, 0.5f, 1.0f, 0xffffffff, }, // x, y, z, rhw, color
-		//{ 590.0f, 430.0f, 0.5f, 1.0f, 0xffffffff, },
-		//{  50.0f, 430.0f, 0.5f, 1.0f, 0xffffffff, },
+		{ 200.0f,  50.0f, 0.5f, 1.0f, 0xffffffff, }, // x, y, z, rhw, color
+		{ 200.0f, 100.0f, 0.5f, 1.0f, 0xffffffff, },
+		{ 150.0f, 100.0f, 0.5f, 1.0f, 0xffffffff, },
+
+		{ 200.0f,  50.0f, 0.5f, 1.0f, 0xff111111, }, // x, y, z, rhw, color
+		{ 250.0f,  100.0f, 0.5f, 1.0f, 0xff111111, },
+		{ 200.0f, 100.0f, 0.5f, 1.0f, 0xff111111, },
+
+		//2段目
+		{ 100.0f,  150.0f, 0.5f, 1.0f, 0xffffffff, }, // x, y, z, rhw, color
+		{ 150.0f, 100.0f, 0.5f, 1.0f, 0xffffffff, },
+		{ 150.0f, 150.0f, 0.5f, 1.0f, 0xffffffff, },
+
+		{ 150.0f,  100.0f, 0.5f, 1.0f, 0xff111111, }, // x, y, z, rhw, color
+		{ 200.0f, 100.0f, 0.5f, 1.0f, 0xff111111, },
+		{ 150.0f, 150.0f, 0.5f, 1.0f, 0xff111111, },
+
+		{ 200.0f,  100.0f, 0.5f, 1.0f, 0xff111111, }, // x, y, z, rhw, color
+		{ 200.0f, 150.0f, 0.5f, 1.0f, 0xff111111, },
+		{ 150.0f, 150.0f, 0.5f, 1.0f, 0xff111111, },
+
+
+		{ 200.0f,  100.0f, 0.5f, 1.0f, 0xffffffff, }, // x, y, z, rhw, color
+		{ 250.0f, 100.0f, 0.5f, 1.0f, 0xffffffff, },
+		{ 200.0f, 150.0f, 0.5f, 1.0f, 0xffffffff, },
+
+		{ 250.0f,  100.0f, 0.5f, 1.0f, 0xffffffff, }, // x, y, z, rhw, color
+		{ 250.0f, 150.0f, 0.5f, 1.0f, 0xffffffff, },
+		{ 200.0f, 150.0f, 0.5f, 1.0f, 0xffffffff, },
+
+		{ 250.0f,  100.0f, 0.5f, 1.0f, 0xff111111, }, // x, y, z, rhw, color
+		{ 300.0f, 150.0f, 0.5f, 1.0f, 0xff111111, },
+		{ 250.0f, 150.0f, 0.5f, 1.0f, 0xff111111, },
+
+		//3段目
+
+		{ 50,  200, 0.5f, 1.0f, 0xffffffff, }, // x, y, z, rhw, color
+		{ 100, 150, 0.5f, 1.0f, 0xffffffff, },
+		{ 100, 200, 0.5f, 1.0f, 0xffffffff, },
+
+		{ 100,  150, 0.5f, 1.0f, 0xff111111, }, // x, y, z, rhw, color
+		{ 150, 150, 0.5f, 1.0f, 0xff111111, },
+		{ 100, 200, 0.5f, 1.0f, 0xff111111, },
+
+		{ 150,  150, 0.5f, 1.0f, 0xff111111, }, // x, y, z, rhw, color
+		{ 150, 200, 0.5f, 1.0f, 0xff111111, },
+		{ 100, 200, 0.5f, 1.0f, 0xff111111, },
+
+		{ 150.0f,  150, 0.5f, 1.0f, 0xffffffff, }, // x, y, z, rhw, color
+		{ 200.0f, 150, 0.5f, 1.0f, 0xffffffff, },
+		{ 150.0f, 200, 0.5f, 1.0f, 0xffffffff, },
+
+		{ 200.0f,  150, 0.5f, 1.0f, 0xffffffff, }, // x, y, z, rhw, color
+		{ 200.0f, 200, 0.5f, 1.0f, 0xffffffff, },
+		{ 150.0f, 200, 0.5f, 1.0f, 0xffffffff, },
+
+
+		{ 200.0f,  150, 0.5f, 1.0f, 0xff111111, }, // x, y, z, rhw, color
+		{ 250.0f, 150, 0.5f, 1.0f, 0xff111111, },
+		{ 200.0f, 200, 0.5f, 1.0f, 0xff111111, },
+
+		{ 250.0f,  150, 0.5f, 1.0f, 0xff111111, }, // x, y, z, rhw, color
+		{ 250.0f, 200, 0.5f, 1.0f, 0xff111111, },
+		{ 200.0f, 200, 0.5f, 1.0f, 0xff111111, },
+
+		{ 250,  150, 0.5f, 1.0f, 0xffffffff, }, // x, y, z, rhw, color
+		{ 300, 150, 0.5f, 1.0f, 0xffffffff, },
+		{ 250, 200, 0.5f, 1.0f, 0xffffffff, },
+
+		{ 300,  150, 0.5f, 1.0f, 0xffffffff, }, // x, y, z, rhw, color
+		{ 300, 200, 0.5f, 1.0f, 0xffffffff, },
+		{ 250, 200, 0.5f, 1.0f, 0xffffffff, },
+
+		{ 300,  200, 0.5f, 1.0f, 0xff111111, }, // x, y, z, rhw, color
+		{ 300, 150, 0.5f, 1.0f, 0xff111111, },
+		{ 350, 200, 0.5f, 1.0f, 0xff111111, },
 	};
 
+
 	//頂点バッファの作成
-	if (FAILED(device9->CreateVertexBuffer(3 * sizeof(CUSTOM_VERTEX), 0, D3DFVF_XYZRHW | D3DFVF_DIFFUSE, D3DPOOL_DEFAULT, &vertexBuffer, NULL)))
+	if (FAILED(device9->CreateVertexBuffer(6 * sizeof(CUSTOM_VERTEX), 0, D3DFVF_XYZRHW | D3DFVF_DIFFUSE, D3DPOOL_DEFAULT, &vertexBuffer, NULL)))
 	{
 		return 1;
 	}
@@ -164,9 +235,9 @@ INT WINAPI wWinMain(HINSTANCE hInst, HINSTANCE, LPWSTR, INT)
 		return 1;
 	}
 
-	memcpy(pVertices, vertexArray,  sizeof(vertexArray));
+	memcpy(pVertices, vertexArray, sizeof(vertexArray));
 
-	//CUSTOM_VERTEX* hoge = reinterpret_cast<CUSTOM_VERTEX*>(pVertices);
+	CUSTOM_VERTEX* hoge = reinterpret_cast<CUSTOM_VERTEX*>(pVertices);
 
 	vertexBuffer->Unlock();
 
